@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+@onready var laser_raycast: Node2D = $laser/RayCast2D
 
+@onready var laser_visual: Node2D = $laser/Line2D
 const SPEED = 15.0
 const DECELERATION_RATE = 4.5
+var laser_on = true
 
+@export var xp: int = 0
 @onready var particles: Node2D = $particles
 
 var time_accumulated: float = 0.0
@@ -11,14 +15,9 @@ var fire_interval: float = 1./GameInstance.bullet_autofire_speed if GameInstance
 
 const BULLET = preload("res://scenes/bullet.tscn")
 
-func _ready() -> void:
-	GameInstance.stats_updated.connect(_on_stats_updated)
-
-func _on_stats_updated (): 
-	fire_interval = 1./GameInstance.bullet_autofire_speed if GameInstance.bullet_autofire_speed > 0 else 9999.0; 
-
-
 func _physics_process(delta: float) -> void:
+	
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction_x := Input.get_axis("player_left", "player_right")
@@ -48,6 +47,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"): 
 		self._fire_logic(); 
 
+	if Input.is_action_just_pressed("lazer"): 
+		self._activate_lazer(); 
 	
 	if GameInstance.bullet_autofire_speed > 0:
 		time_accumulated += delta
@@ -58,17 +59,33 @@ func _physics_process(delta: float) -> void:
 	#test here
 	if Input.is_action_just_pressed("ui_accept"): 
 		GameInstance.add_bullet_stream_count(); 
+		
+func _activate_lazer(): 
+	if not GameInstance.lazer_unlocked:
+		print("403")
+		return
+	if laser_on:
+		print("Lazer off")
+		laser_raycast.enabled = false
+		laser_visual.visible = false
+		laser_on = false
+	else:
+		print("Lazer on")
+		laser_raycast.enabled =true
+		laser_visual.visible = true
+		laser_on = true
 
 func _fire_logic () -> void: 
-		if GameInstance.bullet_sterams_count == 2:
-			self._fire_bullet(Vector2(0, 10))
-			self._fire_bullet(Vector2(0, -10)) 
-		elif GameInstance.bullet_sterams_count == 3: 
-			self._fire_bullet(Vector2(0, 20))
-			self._fire_bullet(Vector2.ZERO)
-			self._fire_bullet(Vector2(0, -20)) 
-		else: # 1 or fallback
-			self._fire_bullet(Vector2.ZERO)
+	if laser_on: return
+	if GameInstance.bullet_sterams_count == 2:
+		self._fire_bullet(Vector2(0, 10))
+		self._fire_bullet(Vector2(0, -10)) 
+	elif GameInstance.bullet_sterams_count == 3: 
+		self._fire_bullet(Vector2(0, 20))
+		self._fire_bullet(Vector2.ZERO)
+		self._fire_bullet(Vector2(0, -20)) 
+	else: # 1 or fallback
+		self._fire_bullet(Vector2.ZERO)
 
 func pause_object_temporarily():
 	set_process(false)

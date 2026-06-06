@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b16ae8fdnwfkw" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://assets/spaceship.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://f73il8uv32ty" path="res://scenes/laser.gd" id="2_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://bvhd4bbqo5pcc" path="res://assets/New Piskel (2).png" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://deuq660u1kmp6" path="res://assets/ships/sprite_1.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://cel2jqjyp8dx6" path="res://assets/ships/sprite_2.png" id="5_fjrip"]
@@ -84,13 +85,16 @@ script = ExtResource("1_onrkg")
 
 [node name="laser" type="Node2D" parent="." unique_id=1573327452]
 position = Vector2(19, 0)
+script = ExtResource("2_ur7pv")
 
 [node name="Line2D" type="Line2D" parent="laser" unique_id=684551639]
-points = PackedVector2Array(0, 0)
+points = PackedVector2Array(0, 0, 0, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="laser" unique_id=405897092]
 position = Vector2(-19, 0)
-target_position = Vector2(79, 0)
+target_position = Vector2(1500, 0)
+collision_mask = 3
+collide_with_areas = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=65228004]
 rotation = 1.5707964
