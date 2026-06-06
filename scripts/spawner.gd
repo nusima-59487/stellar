@@ -1,9 +1,8 @@
 extends Marker2D
 
 @export var junk_scene: PackedScene
-var timer1: Timer
-var timer2: Timer
-var timer3: Timer
+var health = 10
+var number = 1
 
 func get_split_random_int() -> int:
 	# randf() returns a float between 0.0 and 1.0
@@ -17,35 +16,13 @@ func spawn_enemy(health):
 	junk.global_position = Vector2(get_split_random_int(), get_split_random_int())
 	junk.dir = randf() < 0.5
 	junk.health = health
-	print(junk.health, junk.global_position, junk.dir)
 	get_parent().add_child(junk)
 
 func _ready():
-	timer1 = $Timer1
-	timer2 = $Timer2
-	timer3 = $Timer3
-	timer1.timeout.connect(wave1)
-	timer2.timeout.connect(wave2)
-	timer3.timeout.connect(wave3)
-
-func wave1():
-	spawn_enemy(10)
-	spawn_enemy(10)
-	spawn_enemy(10)
-	spawn_enemy(10)
-	spawn_enemy(10)
-
-func wave2():
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	spawn_enemy(30)
-	
-func wave3():
-	spawn_enemy(1000)
+	while true:
+		for i in range(number):
+			spawn_enemy(health)
+		health += 5
+		number += 1
+		print("This is number ", number, "stage.")
+		await get_tree().create_timer(15.0).timeout

@@ -9,10 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cphnilbx06yi" path="res://assets/progressbar_top.png" id="5_p57ef"]
 [ext_resource type="FontFile" uid="uid://bdjlwn2fgd5cq" path="res://assets/fonts/PixelifySans-Regular.ttf" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://rbgacf2dbr2s" path="res://scenes/lvlup_ui.tscn" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://h8q1fbvchm3w" path="res://scripts/sprite_2d.gd" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://m8k8dgcg1s0j" path="res://assets/arrow.png" id="11_28e93"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
 [node name="Earth" parent="." unique_id=1882255239 instance=ExtResource("1_lnu2h")]
+position = Vector2(-33, 14)
 scale = Vector2(3, 3)
 
 [node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_lbhrr")]
@@ -54,21 +57,26 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="HpOverlay" unique_id=136793312]
+position = Vector2(52, 599)
+texture = ExtResource("11_28e93")
+script = ExtResource("10_vtaks")
+
 [node name="Spawner" type="Marker2D" parent="." unique_id=570775490]
 position = Vector2(1188, 909)
 script = ExtResource("4_lbhrr")
 junk_scene = ExtResource("2_lbhrr")
 
-[node name="Timer3" type="Timer" parent="Spawner" unique_id=421588718]
-wait_time = 60.0
+[node name="Timer1" type="Timer" parent="Spawner" unique_id=477790015]
+wait_time = 20.0
 autostart = true
 
 [node name="Timer2" type="Timer" parent="Spawner" unique_id=2094636157]
 wait_time = 40.0
 autostart = true
 
-[node name="Timer1" type="Timer" parent="Spawner" unique_id=477790015]
-wait_time = 20.0
+[node name="Timer3" type="Timer" parent="Spawner" unique_id=421588718]
+wait_time = 60.0
 autostart = true
 
 [node name="EndScene" type="Node2D" parent="." unique_id=1091491876]
