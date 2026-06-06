@@ -24,3 +24,16 @@ position = Vector2(-702, 501)
 
 [node name="CharacterBody2D2" parent="." unique_id=1570872910 instance=ExtResource("3_feb5d")]
 position = Vector2(-170, -152)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345353159]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1490648743]
+custom_minimum_size = Vector2(200, 30)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_bottom = 27.0
+grow_horizontal = 0
+max_value = 10.0
+value = 10.0
