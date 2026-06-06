@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b588aj3hjqlq0" path="res://assets/earth.png" id="1_om26h"]
 [ext_resource type="Script" uid="uid://tbjt2gskoula" path="res://scripts/earth.gd" id="1_qbwya"]
+[ext_resource type="Texture2D" uid="uid://c581xfl2po1vh" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_2tfwh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbwya"]
 radius = 51.009804
@@ -29,5 +30,15 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=474385988]
 shape = SubResource("CircleShape2D_2bhor")
 debug_color = Color(0.8480237, 0.36247793, 0.27062234, 0.41960785)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=236707297]
+position = Vector2(-182, -219)
+scale = Vector2(2.305664, 2.2851563)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.69411767)
+shadow_filter = 1
+texture = ExtResource("3_2tfwh")
+texture_scale = 4.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

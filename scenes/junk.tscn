@@ -48,6 +48,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtnv1"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3k27h"]
+polygon = PackedVector2Array(-12, 65, -64, 2, -10, -58, 61, -23, 48, 42, 5, 29)
+
 [node name="Junk CharBody2D" type="CharacterBody2D" unique_id=312566469]
 collision_layer = 2
 collision_mask = 6
@@ -68,5 +71,8 @@ collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=148217977]
 shape = SubResource("RectangleShape2D_jtnv1")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1313780683]
+occluder = SubResource("OccluderPolygon2D_3k27h")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
