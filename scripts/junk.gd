@@ -28,20 +28,25 @@ func _physics_process(_shit) -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
-		break_junk()
-		health = 10
-	if health <= 0 && stage ==2:
-		queue_free()
+		if stage == 2:
+			queue_free()
+		else:
+			queue_free()
+			break_junk()
 
 func break_junk() -> void:
+	var JUNK1 = preload("res://scenes/junk.tscn")
+	var junk_instance1 = JUNK1.instantiate()
+	junk_instance1.position = self.position + Vector2(2, 2)
+	junk_instance1.rotation = self.rotation - PI/2
+	junk_instance1.stage = self.stage + 1
+	add_sibling(junk_instance1)
+	
 	var JUNK = preload("res://scenes/junk.tscn")
 	var junk_instance = JUNK.instantiate()
-	junk_instance.position = self.position
+	junk_instance.position = self.position + Vector2(-2, -2)
 	junk_instance.rotation = self.rotation - PI/2
-	if junk_instance.stage + 1 < 3:
-		junk_instance.stage += 1
-	if stage + 1 < 3:
-		stage += 1
+	junk_instance.stage = self.stage + 1
 	add_sibling(junk_instance)
 	
 
