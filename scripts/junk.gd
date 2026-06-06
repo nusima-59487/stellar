@@ -17,7 +17,7 @@ var hitbox_ready := false
 
 func _ready() -> void:
 	print(self.name, "junk ready!")
-	await get_tree().create_timer(.4).timeout # 1st second invincible
+	await get_tree().create_timer(.3).timeout # first .3 second invincible
 	print(self.name, "junk hitbox ready!")
 	hitbox_ready = true; 
 
