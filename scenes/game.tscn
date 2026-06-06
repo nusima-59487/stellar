@@ -57,6 +57,10 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="lasertimer" type="RichTextLabel" parent="HpOverlay" unique_id=385398932]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Sprite2D" type="Sprite2D" parent="HpOverlay" unique_id=136793312]
 position = Vector2(52, 599)
 texture = ExtResource("11_28e93")

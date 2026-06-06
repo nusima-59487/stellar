@@ -5,15 +5,22 @@ extends CharacterBody2D
 @onready var laser_visual: Node2D = $laser/Line2D
 const SPEED = 15.0
 const DECELERATION_RATE = 4.5
-var laser_on = true
+var laser_on = false
 
 @export var xp: int = 0
 @onready var particles: Node2D = $particles
+
+var is_laser_cooldown_done = true
+
 
 var time_accumulated: float = 0.0
 var fire_interval: float = 1./GameInstance.bullet_autofire_speed if GameInstance.bullet_autofire_speed > 0 else 9999.0; 
 
 const BULLET = preload("res://scenes/bullet.tscn")
+
+
+func _ready() -> void:
+	laser_off()
 
 func _physics_process(delta: float) -> void:
 	
@@ -46,9 +53,10 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("fire"): 
 		self._fire_logic(); 
-
-	if Input.is_action_just_pressed("lazer"): 
-		self._activate_lazer(); 
+	
+	if is_laser_cooldown_done:
+		if Input.is_action_just_pressed("lazer"): 
+			self._activate_lazer(); 
 	
 	if GameInstance.bullet_autofire_speed > 0:
 		time_accumulated += delta
@@ -60,20 +68,29 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"): 
 		GameInstance.add_bullet_stream_count(); 
 		
-func _activate_lazer(): 
+func _activate_lazer():
 	if not GameInstance.lazer_unlocked:
 		print("403")
 		return
 	if laser_on:
-		print("Lazer off")
-		laser_raycast.enabled = false
-		laser_visual.visible = false
-		laser_on = false
+		laser_off()
 	else:
-		print("Lazer on")
-		laser_raycast.enabled =true
-		laser_visual.visible = true
-		laser_on = true
+		if is_laser_cooldown_done:
+			print("Lazer on")
+			laser_raycast.enabled =true
+			laser_visual.visible = true
+			laser_on = true
+			is_laser_cooldown_done = false
+			await get_tree().create_timer(4).timeout
+			laser_off()
+			await get_tree().create_timer(1).timeout
+			is_laser_cooldown_done = true
+
+func laser_off():
+	print("Lazer off")
+	laser_raycast.enabled = false
+	laser_visual.visible = false
+	laser_on = false
 
 func _fire_logic () -> void: 
 	if laser_on: return
