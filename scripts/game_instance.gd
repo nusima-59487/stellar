@@ -21,7 +21,12 @@ var stellar_1_unlocked: bool = false;
 var stellar_2_unlocked: bool = false;
 var stellar_3_unlocked: bool = false;
 
-func add_bullet_stream_count () -> void: 
+const _BACKGROUND := preload("res://scripts/background.gd")
+
+func _ready() -> void:
+	add_child(_BACKGROUND.new())
+
+func add_bullet_stream_count () -> void:
 	if bullet_sterams_count < 3: 
 		bullet_sterams_count += 1; 
 	if _animated_sprite_2d != null: 
