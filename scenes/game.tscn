@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ghwgwws3dhcp"]
+
+[ext_resource type="PackedScene" uid="uid://327la0ebdhj3" path="res://scenes/earth.tscn" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bcnqemqru3qx5" path="res://scenes/junk.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bealsgd5r5mfq" path="res://scenes/player.tscn" id="3_iywne"]
+
+[node name="Node2D" type="Node2D" unique_id=1828940856]
+
+[node name="Earth" parent="." unique_id=1882255239 instance=ExtResource("1_lnu2h")]
+
+[node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_lbhrr")]
+position = Vector2(369, 169)
+
+[node name="Junk CharBody2D4" parent="." unique_id=877855011 instance=ExtResource("2_lbhrr")]
+position = Vector2(88, 413)
+
+[node name="Junk CharBody2D5" parent="." unique_id=1744840305 instance=ExtResource("2_lbhrr")]
+position = Vector2(476, 413)
+
+[node name="Junk CharBody2D6" parent="." unique_id=836333083 instance=ExtResource("2_lbhrr")]
+position = Vector2(-202, 430)
+
+[node name="Junk CharBody2D7" parent="." unique_id=1388662217 instance=ExtResource("2_lbhrr")]
+position = Vector2(99, -412)
+
+[node name="Junk CharBody2D8" parent="." unique_id=2116922254 instance=ExtResource("2_lbhrr")]
+position = Vector2(178, -168)
+
+[node name="Junk CharBody2D9" parent="." unique_id=882653325 instance=ExtResource("2_lbhrr")]
+position = Vector2(459, -205)
+
+[node name="Junk CharBody2D10" parent="." unique_id=935762404 instance=ExtResource("2_lbhrr")]
+position = Vector2(553, 69)
+
+[node name="Junk CharBody2D2" parent="." unique_id=372707143 instance=ExtResource("2_lbhrr")]
+position = Vector2(-580, 25)
+
+[node name="Junk CharBody2D3" parent="." unique_id=952889131 instance=ExtResource("2_lbhrr")]
+position = Vector2(-702, 501)
+
+[node name="Player" parent="." unique_id=1570872910 instance=ExtResource("3_iywne")]
+position = Vector2(-276, -57)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345353159]
+
+[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1073282883]
+custom_minimum_size = Vector2(200, 30)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 30.0
+grow_horizontal = 0
+max_value = 10.0
+value = 10.0

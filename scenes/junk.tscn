@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bcnqemqru3qx5"]
 
-[ext_resource type="Script" uid="uid://vydqqx11uett" path="res://scripts/junk.gd" id="1_pfk58"]
-[ext_resource type="Texture2D" uid="uid://f0rlgyy36ix1" path="res://junk/sprite_0.png" id="1_qg775"]
-[ext_resource type="Texture2D" uid="uid://ccfqgdwgyvjex" path="res://Big junk/sprite_1.png" id="2_mk0ln"]
-[ext_resource type="Texture2D" uid="uid://dcosvt4g0dl4n" path="res://Big junk/sprite_0.png" id="3_ddbd0"]
+[ext_resource type="Script" uid="uid://vydqqx11uett" path="res://scripts/junk.gd" id="1_ga32m"]
+[ext_resource type="Texture2D" uid="uid://ccfqgdwgyvjex" path="res://assets/junk_big_sprite_1.png" id="2_51s5w"]
+[ext_resource type="Texture2D" uid="uid://dcosvt4g0dl4n" path="res://assets/junk_big_sprite_0.png" id="3_ouwl6"]
+[ext_resource type="Texture2D" uid="uid://f0rlgyy36ix1" path="res://assets/junk_sprite_0.png" id="4_3k27h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i5fux"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mk0ln")
+"texture": ExtResource("2_51s5w")
 }],
 "loop": true,
 "name": &"big",
@@ -17,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ddbd0")
+"texture": ExtResource("3_ouwl6")
 }],
 "loop": true,
 "name": &"med",
@@ -25,7 +25,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_qg775")
+"texture": ExtResource("4_3k27h")
 }],
 "loop": true,
 "name": &"smol",
@@ -37,7 +37,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtnv1"]
 
 [node name="Junk CharBody2D" type="CharacterBody2D" unique_id=312566469]
-script = ExtResource("1_pfk58")
+script = ExtResource("1_ga32m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1100560220]
 sprite_frames = SubResource("SpriteFrames_i5fux")
