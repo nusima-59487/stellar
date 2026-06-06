@@ -14,7 +14,8 @@ scale = Vector2(3, 3)
 hp = 100
 
 [node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_lbhrr")]
-position = Vector2(453, 100)
+position = Vector2(639, -191)
+collision_layer = 2
 
 [node name="Player" parent="." unique_id=1570872910 instance=ExtResource("3_iywne")]
 position = Vector2(-276, -57)

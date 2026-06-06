@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://di7rdkcov8ay5" path="res://assets/New Piskel (3).png" id="2_y25gk"]
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1599289689]
+z_index = 4
+collision_layer = 2
+collision_mask = 6
 script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824070223]
@@ -12,6 +15,9 @@ scale = Vector2(2.44, 2.7200003)
 texture = ExtResource("2_y25gk")
 
 [node name="Detection Area2D" type="Area2D" parent="." unique_id=338098720]
+z_index = 2
+collision_layer = 2
+collision_mask = 6
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detection Area2D" unique_id=1870640079]
 rotation = 1.5707964

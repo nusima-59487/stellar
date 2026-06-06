@@ -26,6 +26,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=921207560]
+z_index = 6
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=65228004]
