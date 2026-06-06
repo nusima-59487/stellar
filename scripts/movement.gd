@@ -6,6 +6,9 @@ const DECELERATION_RATE = 4.5
 
 @export var xp: int = 0
 
+var time_accumulated: float = 0.0
+var fire_interval: float = 1./GameInstance.bullet_autofire_speed if GameInstance.bullet_autofire_speed > 0 else 9999.0; 
+
 const BULLET = preload("res://scenes/bullet.tscn")
 
 func _physics_process(delta: float) -> void:
@@ -34,6 +37,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if Input.is_action_just_pressed("fire"): 
+		self._fire_logic(); 
+
+	
+	if GameInstance.bullet_autofire_speed > 0:
+		time_accumulated += delta
+		if time_accumulated >= fire_interval:
+			time_accumulated = 0.0 # Reset the interval
+			self._fire_logic();
+
+	#test here
+	if Input.is_action_just_pressed("ui_accept"): 
+		GameInstance.add_bullet_stream_count(); 
+
+func _fire_logic () -> void: 
 		if GameInstance.bullet_sterams_count == 2:
 			self._fire_bullet(Vector2(0, 10))
 			self._fire_bullet(Vector2(0, -10)) 

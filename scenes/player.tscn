@@ -41,6 +41,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_qlg0r"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	GameInstance._animated_sprite_2d = self; 
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
@@ -54,6 +68,7 @@ rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"ship1"
+script = SubResource("GDScript_qlg0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=110113435]
 shape = SubResource("RectangleShape2D_onrkg")
