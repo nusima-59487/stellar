@@ -10,6 +10,7 @@
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
 [node name="Earth" parent="." unique_id=1882255239 instance=ExtResource("1_lnu2h")]
+scale = Vector2(3, 3)
 hp = 100
 
 [node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_lbhrr")]

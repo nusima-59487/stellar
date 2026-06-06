@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bij87hqqhwlsj"]
 
 [ext_resource type="Script" uid="uid://c58drfi7f8g7v" path="res://scripts/bullet.gd" id="1_y25gk"]
-[ext_resource type="Texture2D" uid="uid://cyt7fe1wjnebd" path="res://assets/bullet.png" id="2_l5glv"]
+[ext_resource type="Texture2D" uid="uid://di7rdkcov8ay5" path="res://assets/New Piskel (3).png" id="2_y25gk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
 radius = 24.083189
@@ -11,7 +11,8 @@ script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824070223]
 position = Vector2(0, 5)
-texture = ExtResource("2_l5glv")
+scale = Vector2(2.44, 2.7200003)
+texture = ExtResource("2_y25gk")
 
 [node name="Detection Area2D" type="Area2D" parent="." unique_id=338098720]
 
