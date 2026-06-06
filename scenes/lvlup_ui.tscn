@@ -134,6 +134,7 @@ autowrap_mode = 2
 z_index = 1000
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+focus_neighbor_right = NodePath("../../CenterContainer2/Button3")
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
@@ -180,6 +181,8 @@ autowrap_mode = 2
 [node name="Button3" type="Button" parent="AbilitiesCanvasLayer/CenterContainer2" unique_id=1344803972]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+focus_neighbor_left = NodePath("../../CenterContainer3/Button")
+focus_neighbor_right = NodePath("../../CenterContainer/Button2")
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
@@ -233,6 +236,7 @@ autowrap_mode = 2
 [node name="Button2" type="Button" parent="AbilitiesCanvasLayer/CenterContainer" unique_id=385585764]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+focus_neighbor_left = NodePath("../../CenterContainer2/Button3")
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)

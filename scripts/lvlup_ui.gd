@@ -96,6 +96,7 @@ func add_xp (count: int) -> void:
 		animated_sprite_2d.animation = choice1
 		label2.text = update_titles[choice2]
 		button2.text = choice2
+		button2.grab_focus()
 		animated_sprite_2d_2.animation = choice2
 		label3.text = update_titles[choice3]
 		button3.text = choice3
@@ -148,11 +149,11 @@ func _upgrade_stats (stat_key: String, current_stage_idx: int) -> bool:
 		"bullet_autofire_speed":
 			GameInstance.bullet_autofire_speed = new_stat_val; 
 		"increase_max_earth_health":
-			GameInstance.max_earth_health += 15; 
+			GameInstance.earth_health += 15; 
 		"regen_earth_health":
 			GameInstance.earth_ref.hp += 15; 
-			if GameInstance.earth_ref.hp > GameInstance.max_earth_health: 
-				GameInstance.earth_ref.hp = GameInstance.max_earth_health
+			if GameInstance.earth_ref.hp > GameInstance.earth_health: 
+				GameInstance.earth_ref.hp = GameInstance.earth_health
 		"lazer_unlock":
 			GameInstance.lazer_unlocked = new_stat_val; 
 			updates_available.merge({	
