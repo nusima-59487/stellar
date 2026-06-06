@@ -1,20 +1,22 @@
 extends CharacterBody2D
 class_name Bullet
 
-@export var damage: int = 10
-@export var speed = 200
-var player: CharacterBody2D
-var experience_bar: TextureProgressBar; 
+var damage: int; 
+var speed: int; 
+@onready var player: CharacterBody2D = $"../Player"
+@onready var experience_bar: TextureProgressBar = $"../UI/CanvasLayer/ExperienceBar"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = $"../Player"
-	experience_bar = $"../UI/CanvasLayer/ExperienceBar"
 	experience_bar.max_value = 50
 	experience_bar.value = player.xp
 	
+	damage = GameInstance.bullet_damage; 
+	speed = GameInstance.bullet_speed; 
+	
 	var forward_direction = Vector2.RIGHT.rotated(rotation)
 	velocity = forward_direction * speed
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

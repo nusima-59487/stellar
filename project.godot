@@ -19,6 +19,10 @@ run/main_scene="uid://ghwgwws3dhcp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameInstance="*res://scripts/game_instance.gd"
+
 [dotnet]
 
 project/assembly_name="cascade"
@@ -102,4 +106,5 @@ look_right={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true
 environment/defaults/default_clear_color=Color(0.11764706, 0.11764706, 0.11764706, 1)

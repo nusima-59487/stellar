@@ -1,10 +1,9 @@
 extends StaticBody2D
 class_name Earth
 
-@export var hp: int = 80
 
-# temp
-var max_hp = 80; 
+var max_hp: int = GameInstance.earth_health;
+var hp: int = max_hp;
 
 @onready var hp_overlay: CanvasLayer = $"../HpOverlay"
 

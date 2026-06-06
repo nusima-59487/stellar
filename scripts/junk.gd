@@ -7,11 +7,11 @@ var all_hp = [10, 5, 2]
 
 var hitbox_ready := false
 
-@export var health: int = 10
+@export var health: int = 10 # todo: scale this based on # seconds survived
 @export var stage: int = 0
 @export var dir = true
 @export var C_SPEED = 40.0
-@export var T_SPEED = 130.0
+@export var T_SPEED = 130.0 * GameInstance.junk_speed_multiplier
 
 @onready var JUNK = preload("res://scenes/junk.tscn"); 
 
