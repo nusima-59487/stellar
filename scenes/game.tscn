@@ -5,13 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://bealsgd5r5mfq" path="res://scenes/player.tscn" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://d36k18vqtv7jp" path="res://assets/progressbar_btm.png" id="4_iywne"]
 [ext_resource type="Script" uid="uid://u1q71ydbpxol" path="res://scripts/spawner.gd" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://bma6mncgbf7nc" path="res://scripts/hpoverlay.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cphnilbx06yi" path="res://assets/progressbar_top.png" id="5_p57ef"]
+[ext_resource type="FontFile" uid="uid://bdjlwn2fgd5cq" path="res://assets/fonts/PixelifySans-Regular.ttf" id="7_gee14"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
 [node name="Earth" parent="." unique_id=1882255239 instance=ExtResource("1_lnu2h")]
 scale = Vector2(3, 3)
-hp = 100
+hp = 80
 
 [node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_lbhrr")]
 position = Vector2(639, -191)
@@ -19,9 +21,10 @@ position = Vector2(639, -191)
 [node name="Player" parent="." unique_id=1570872910 instance=ExtResource("3_iywne")]
 position = Vector2(-276, -57)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345353159]
+[node name="HpOverlay" type="CanvasLayer" parent="." unique_id=1345353159]
+script = ExtResource("4_u5sy4")
 
-[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1481164284]
+[node name="ProgressBar" type="TextureProgressBar" parent="HpOverlay" unique_id=1481164284]
 custom_minimum_size = Vector2(200, 30)
 anchors_preset = 1
 anchor_left = 1.0
@@ -36,6 +39,20 @@ value = 10.0
 nine_patch_stretch = true
 texture_under = ExtResource("4_iywne")
 texture_progress = ExtResource("5_p57ef")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HpOverlay" unique_id=1445689816]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -301.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 31.0
+theme_override_fonts/normal_font = ExtResource("7_gee14")
+text = "aaetaetae"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Spawners" type="Node2D" parent="." unique_id=749929689]
 
