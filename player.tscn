@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bealsgd5r5mfq"]
+
+[ext_resource type="Script" uid="uid://c4lcd5dm0rrbi" path="res://movement.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://New Piskel (1).png" id="2_i3pqv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=921207560]
+script = ExtResource("1_onrkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=65228004]
+sprite_frames = SubResource("SpriteFrames_hqtel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=110113435]
+shape = SubResource("RectangleShape2D_onrkg")
