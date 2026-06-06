@@ -151,9 +151,12 @@ func _upgrade_stats (stat_key: String, current_stage_idx: int) -> bool:
 		"increase_max_earth_health":
 			GameInstance.earth_health += 15; 
 		"regen_earth_health":
-			GameInstance.earth_ref.hp += 15; 
-			if GameInstance.earth_ref.hp > GameInstance.earth_health: 
-				GameInstance.earth_ref.hp = GameInstance.earth_health
+			if GameInstance.earth_ref == null: 
+				printerr("earth reference is null!")
+			else:  
+				GameInstance.earth_ref.hp += 15; 
+				if GameInstance.earth_ref.hp > GameInstance.earth_health: 
+					GameInstance.earth_ref.hp = GameInstance.earth_health
 		"lazer_unlock":
 			GameInstance.lazer_unlocked = new_stat_val; 
 			updates_available.merge({	
