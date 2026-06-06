@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bma6mncgbf7nc" path="res://scripts/hpoverlay.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cphnilbx06yi" path="res://assets/progressbar_top.png" id="5_p57ef"]
 [ext_resource type="FontFile" uid="uid://bdjlwn2fgd5cq" path="res://assets/fonts/PixelifySans-Regular.ttf" id="7_gee14"]
+[ext_resource type="Texture2D" uid="uid://m8k8dgcg1s0j" path="res://assets/arrow.png" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://h8q1fbvchm3w" path="res://scripts/sprite_2d.gd" id="10_vtaks"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
@@ -190,3 +192,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Power Up 1"
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/CanvasLayer" unique_id=860986163]
+position = Vector2(33, 607)
+texture = ExtResource("9_0tnpc")
+script = ExtResource("10_vtaks")
