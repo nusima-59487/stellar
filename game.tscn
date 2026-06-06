@@ -2,12 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://b588aj3hjqlq0" path="res://earth.png" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bealsgd5r5mfq" path="res://player.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bcnqemqru3qx5" path="res://junk.tscn" id="2_e2o6t"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
 [node name="Earth" type="Sprite2D" parent="." unique_id=629851802]
-position = Vector2(576, 312.00003)
+position = Vector2(0, 3.6358833e-06)
 scale = Vector2(2.515625, 2.4424963)
 texture = ExtResource("1_80nbo")
 
 [node name="CharacterBody2D" parent="." unique_id=921207560 instance=ExtResource("2_e2o6t")]
+[node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_e2o6t")]
+position = Vector2(369, 169)
+
+[node name="Junk CharBody2D2" parent="." unique_id=372707143 instance=ExtResource("2_e2o6t")]
+position = Vector2(-391, -60)
+
+[node name="Junk CharBody2D3" parent="." unique_id=952889131 instance=ExtResource("2_e2o6t")]
+position = Vector2(-702, 501)

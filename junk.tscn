@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://bcnqemqru3qx5"]
 
+[ext_resource type="Script" uid="uid://vydqqx11uett" path="res://scripts/junk.gd" id="1_pfk58"]
 [ext_resource type="Texture2D" uid="uid://f0rlgyy36ix1" path="res://junk/sprite_0.png" id="1_qg775"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=312566469]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg775"]
+
+[node name="Junk CharBody2D" type="CharacterBody2D" unique_id=312566469]
+script = ExtResource("1_pfk58")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821151110]
 texture = ExtResource("1_qg775")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1410180971]
+shape = SubResource("RectangleShape2D_qg775")
