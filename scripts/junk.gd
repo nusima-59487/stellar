@@ -42,7 +42,7 @@ func break_junk() -> void:
 		junk_instance.stage += 1
 	if stage + 1 < 3:
 		stage += 1
-	add_sibling(junk_instance)
+	call_deferred("add_sibling", junk_instance)
 	
 
 
