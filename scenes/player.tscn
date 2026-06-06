@@ -82,6 +82,16 @@ colors = PackedColorArray(0.51331526, 0.09738579, 9.62615e-08, 1, 0.7536533, 0.4
 z_index = 6
 script = ExtResource("1_onrkg")
 
+[node name="laser" type="Node2D" parent="." unique_id=1573327452]
+position = Vector2(19, 0)
+
+[node name="Line2D" type="Line2D" parent="laser" unique_id=684551639]
+points = PackedVector2Array(0, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="laser" unique_id=405897092]
+position = Vector2(-19, 0)
+target_position = Vector2(79, 0)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=65228004]
 rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
@@ -114,7 +124,5 @@ initial_velocity_min = 89.11
 initial_velocity_max = 247.53
 color_ramp = SubResource("Gradient_smehm")
 script = ExtResource("8_smehm")
-
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=405897092]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
