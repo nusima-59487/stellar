@@ -4,6 +4,7 @@ class_name Earth
 @export var hp: int = 80
 
 var progress_bar: TextureProgressBar; 
+var end_scene: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,3 +25,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.queue_free()
 		if hp <= 0:
 			self.queue_free() # Earth is destroyed
+			end_scene = $"../EndScene/CanvasLayer"
+			get_tree().paused = true
+			end_scene.visible = true 
+			
