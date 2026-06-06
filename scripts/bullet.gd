@@ -22,6 +22,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	move_and_slide()
+	if (self.global_position - Vector2.ZERO).length() > 1000:
+		queue_free()
 
 func _on_detection_area_2d_body_entered(body: Node2D) -> void:
 	if body is Junk: 

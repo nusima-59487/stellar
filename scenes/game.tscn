@@ -55,8 +55,16 @@ vertical_alignment = 1
 
 [node name="Spawners" type="Node2D" parent="." unique_id=749929689]
 
-[node name="Timer" type="Timer" parent="Spawners" unique_id=477790015]
-wait_time = 10.0
+[node name="Timer3" type="Timer" parent="Spawners" unique_id=421588718]
+wait_time = 60.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="Spawners" unique_id=2094636157]
+wait_time = 40.0
+autostart = true
+
+[node name="Timer1" type="Timer" parent="Spawners" unique_id=477790015]
+wait_time = 20.0
 autostart = true
 
 [node name="Spawner1" type="Marker2D" parent="Spawners" unique_id=570775490]
@@ -152,6 +160,7 @@ texture_under = ExtResource("4_iywne")
 texture_progress = ExtResource("5_p57ef")
 
 [node name="CenterContainer3" type="CenterContainer" parent="UI/CanvasLayer" unique_id=1039802744]
+visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -178,6 +187,7 @@ text = "Power up 2"
 horizontal_alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="UI/CanvasLayer" unique_id=2095961568]
+visible = false
 offset_left = 476.0
 offset_top = 174.0
 offset_right = 676.0
@@ -199,6 +209,7 @@ theme_override_font_sizes/font_size = 32
 text = "Power up 3"
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/CanvasLayer" unique_id=1168567569]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
