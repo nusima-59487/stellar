@@ -94,7 +94,6 @@ animations = [{
 script = ExtResource("1_x7a0g")
 
 [node name="AbilitiesCanvasLayer" type="CanvasLayer" parent="." unique_id=649613481]
-visible = false
 
 [node name="CenterContainer3" type="CenterContainer" parent="AbilitiesCanvasLayer" unique_id=1684832301]
 anchors_preset = 4
@@ -143,7 +142,7 @@ theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AbilitiesCanvasLayer/CenterContainer3" unique_id=710736153]
 z_index = 100
-position = Vector2(403, 100.999985)
+position = Vector2(102, 100.999985)
 scale = Vector2(1.9200025, 1.7999988)
 sprite_frames = SubResource("SpriteFrames_li6lx")
 animation = &"reduce_damage_taken"
@@ -191,7 +190,7 @@ theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AbilitiesCanvasLayer/CenterContainer2" unique_id=577062021]
 z_index = 1000
-position = Vector2(-198, 101.999985)
+position = Vector2(100, 100.999985)
 scale = Vector2(1.9200025, 1.7999988)
 sprite_frames = SubResource("SpriteFrames_li6lx")
 animation = &"reduce_damage_taken"
