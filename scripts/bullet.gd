@@ -4,13 +4,11 @@ class_name Bullet
 var damage: int; 
 var speed: int; 
 @onready var player: CharacterBody2D = $"../Player"
-@onready var experience_bar: TextureProgressBar = $"../UI/CanvasLayer/ExperienceBar"
+@onready var ui: Node2D = $"../UI"
+
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	experience_bar.max_value = 50
-	experience_bar.value = player.xp
-	
+func _ready() -> void:	
 	damage = GameInstance.bullet_damage; 
 	speed = GameInstance.bullet_speed; 
 	
@@ -27,8 +25,7 @@ func _process(_delta: float) -> void:
 
 func _on_detection_area_2d_body_entered(body: Node2D) -> void:
 	if body is Junk: 
+		var body_stage = body.stage
 		body.take_damage(damage)
-		player.xp += damage
-		experience_bar.value = player.xp
-		print(experience_bar.value)
+		ui.add_xp(damage); 
 		queue_free()

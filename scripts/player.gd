@@ -4,7 +4,6 @@ extends CharacterBody2D
 const SPEED = 15.0
 const DECELERATION_RATE = 4.5
 
-@export var xp: int = 0
 @onready var particles: Node2D = $particles
 
 var time_accumulated: float = 0.0

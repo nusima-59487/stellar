@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://rbgacf2dbr2s"]
+
+[ext_resource type="Texture2D" uid="uid://d36k18vqtv7jp" path="res://assets/progressbar_btm.png" id="1_g1wi5"]
+[ext_resource type="Script" uid="uid://b73oswn2umk43" path="res://scripts/lvlup_ui.gd" id="1_x7a0g"]
+[ext_resource type="Texture2D" uid="uid://cphnilbx06yi" path="res://assets/progressbar_top.png" id="2_x7a0g"]
+
+[node name="UI" type="Node2D" unique_id=724144297]
+script = ExtResource("1_x7a0g")
+
+[node name="AbilitiesCanvasLayer" type="CanvasLayer" parent="." unique_id=649613481]
+visible = false
+
+[node name="CenterContainer3" type="CenterContainer" parent="AbilitiesCanvasLayer" unique_id=1684832301]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = -150.0
+offset_right = 376.0
+offset_bottom = 150.0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="AbilitiesCanvasLayer/CenterContainer3" unique_id=490949625]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+color = Color(0, 0, 0.5019608, 1)
+
+[node name="Label" type="Label" parent="AbilitiesCanvasLayer/CenterContainer3/ColorRect" unique_id=1565717237]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Power up 2"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="AbilitiesCanvasLayer/CenterContainer3" unique_id=1348679552]
+z_index = 1000
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="AbilitiesCanvasLayer" unique_id=494239138]
+offset_left = 476.0
+offset_top = 174.0
+offset_right = 676.0
+offset_bottom = 474.0
+
+[node name="ColorRect" type="ColorRect" parent="AbilitiesCanvasLayer/CenterContainer2" unique_id=480925260]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+color = Color(0, 0, 0.5019608, 1)
+
+[node name="Label" type="Label" parent="AbilitiesCanvasLayer/CenterContainer2/ColorRect" unique_id=1056790757]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Power up 3"
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="AbilitiesCanvasLayer/CenterContainer2" unique_id=1344803972]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="AbilitiesCanvasLayer" unique_id=2088812356]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -150.0
+offset_right = -176.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="AbilitiesCanvasLayer/CenterContainer" unique_id=1308814833]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+color = Color(0, 0, 0.5019608, 1)
+
+[node name="Label" type="Label" parent="AbilitiesCanvasLayer/CenterContainer/ColorRect" unique_id=1243971455]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Power Up 1"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="AbilitiesCanvasLayer/CenterContainer" unique_id=385585764]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="ExpCanvasLayer" type="CanvasLayer" parent="." unique_id=648749792]
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="ExpCanvasLayer" unique_id=631929592]
+custom_minimum_size = Vector2(200, 30)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 32.0
+offset_bottom = 62.0
+grow_horizontal = 0
+nine_patch_stretch = true
+texture_under = ExtResource("1_g1wi5")
+texture_progress = ExtResource("2_x7a0g")
+
+[connection signal="pressed" from="AbilitiesCanvasLayer/CenterContainer3/Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="AbilitiesCanvasLayer/CenterContainer2/Button3" to="." method="_on_button2_pressed"]
+[connection signal="pressed" from="AbilitiesCanvasLayer/CenterContainer/Button2" to="." method="_on_button_3_pressed"]
