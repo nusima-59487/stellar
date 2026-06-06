@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 15.0
 const DECELERATION_RATE = 4.5
 
+const BULLET = preload("res://bullet.tscn")
+
 func _physics_process(delta: float) -> void:
 	
 	
@@ -24,3 +26,10 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees += (90)
 
 	move_and_slide()
+
+	if Input.is_action_just_pressed("fire"): 
+		var bullet_instance = BULLET.instantiate()
+		bullet_instance.position = self.position
+		bullet_instance.rotation = self.rotation - PI/2
+		add_sibling(bullet_instance)
+		

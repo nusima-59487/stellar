@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://327la0ebdhj3"]
+
+[ext_resource type="Texture2D" uid="uid://b588aj3hjqlq0" path="res://earth.png" id="1_om26h"]
+[ext_resource type="Script" uid="uid://tbjt2gskoula" path="res://scripts/earth.gd" id="1_qbwya"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbwya"]
+radius = 56.88585
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bhor"]
+radius = 60.827625
+
+[node name="Earth" type="StaticBody2D" unique_id=1882255239]
+script = ExtResource("1_qbwya")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=222327087]
+texture = ExtResource("1_om26h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1576351551]
+shape = SubResource("CircleShape2D_qbwya")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261532919]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=474385988]
+shape = SubResource("CircleShape2D_2bhor")
+debug_color = Color(0.8480237, 0.36247793, 0.27062234, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

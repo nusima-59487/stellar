@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://ghwgwws3dhcp"]
 
-[ext_resource type="Texture2D" uid="uid://b588aj3hjqlq0" path="res://earth.png" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://327la0ebdhj3" path="res://earth.tscn" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bcnqemqru3qx5" path="res://junk.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bealsgd5r5mfq" path="res://player.tscn" id="3_feb5d"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
-[node name="Earth" type="Sprite2D" parent="." unique_id=629851802]
-position = Vector2(0, 3.6358833e-06)
-scale = Vector2(2.515625, 2.4424963)
-texture = ExtResource("1_80nbo")
+[node name="Earth" parent="." unique_id=1882255239 instance=ExtResource("1_feb5d")]
 
 [node name="CharacterBody2D" parent="." unique_id=921207560 instance=ExtResource("2_e2o6t")]
 
