@@ -94,6 +94,7 @@ animations = [{
 script = ExtResource("1_x7a0g")
 
 [node name="AbilitiesCanvasLayer" type="CanvasLayer" parent="." unique_id=649613481]
+visible = false
 
 [node name="CenterContainer3" type="CenterContainer" parent="AbilitiesCanvasLayer" unique_id=1684832301]
 anchors_preset = 4
