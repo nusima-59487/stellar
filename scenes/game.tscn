@@ -7,6 +7,7 @@
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
 [node name="Earth" parent="." unique_id=1882255239 instance=ExtResource("1_lnu2h")]
+hp = 100
 
 [node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_lbhrr")]
 position = Vector2(369, 169)
@@ -16,7 +17,7 @@ position = Vector2(-276, -57)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345353159]
 
-[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1073282883]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1777079737]
 custom_minimum_size = Vector2(200, 30)
 anchors_preset = 1
 anchor_left = 1.0
@@ -24,5 +25,5 @@ anchor_right = 1.0
 offset_left = -200.0
 offset_bottom = 30.0
 grow_horizontal = 0
-max_value = 10.0
-value = 10.0
+step = 1.0
+value = 100.0

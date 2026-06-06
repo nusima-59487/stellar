@@ -3,7 +3,7 @@ class_name Earth
 
 @export var hp: int = 80
 
-var progress_bar: TextureProgressBar; 
+var progress_bar: ProgressBar; 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 # on body enter detection area
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Junk: 
-		hp -= body.health
+		hp -= (3 - body.stage) * 10
 		progress_bar.value = hp
 		body.queue_free()
 		if hp <= 0:
