@@ -29,6 +29,7 @@ animations = [{
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=65228004]
+rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"ship"

@@ -22,14 +22,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED/DECELERATION_RATE)
 		
-	look_at(get_global_mouse_position())
-	rotation_degrees += (90)
+	var joy_dir := Input.get_vector("look_left", "look_right", "look_up", "look_down")
+	# Check if the stick is being pushed past a small deadzone threshold
+	if joy_dir.length() > 0.2:
+		rotation = joy_dir.angle()
+	elif Input.get_last_mouse_velocity().length() > 0.2: 
+		look_at(get_global_mouse_position())
 
 	move_and_slide()
 
 	if Input.is_action_just_pressed("fire"): 
 		var bullet_instance = BULLET.instantiate()
 		bullet_instance.position = self.position
-		bullet_instance.rotation = self.rotation - PI/2
+		bullet_instance.rotation = self.rotation
 		add_sibling(bullet_instance)
 		
