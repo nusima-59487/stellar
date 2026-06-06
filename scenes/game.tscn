@@ -19,6 +19,7 @@ position = Vector2(639, -191)
 
 [node name="Player" parent="." unique_id=1570872910 instance=ExtResource("3_iywne")]
 position = Vector2(-276, -57)
+xp = null
 
 [node name="HpOverlay" type="CanvasLayer" parent="." unique_id=1345353159]
 script = ExtResource("4_u5sy4")

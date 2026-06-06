@@ -38,4 +38,14 @@ func _physics_process(delta: float) -> void:
 		bullet_instance.position = self.position
 		bullet_instance.rotation = self.rotation
 		add_sibling(bullet_instance)
-		
+
+func pause_object_temporarily():
+	set_process(false)
+	await get_tree().create_timer(2.0).timeout
+	set_process(true)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Junk: 
+		pause_object_temporarily()
+		velocity.x = -0.5 * velocity.x
+		velocity.y = -0.5 * velocity.y
