@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://327la0ebdhj3" path="res://earth.tscn" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bcnqemqru3qx5" path="res://junk.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bealsgd5r5mfq" path="res://player.tscn" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://u1q71ydbpxol" path="res://spawner.gd" id="4_fc0e3"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
@@ -21,6 +22,40 @@ position = Vector2(-702, 501)
 
 [node name="CharacterBody2D2" parent="." unique_id=1570872910 instance=ExtResource("3_feb5d")]
 position = Vector2(-170, -152)
+
+[node name="Spawners" type="Node2D" parent="." unique_id=492917408]
+
+[node name="Spawner2" type="Marker2D" parent="Spawners" unique_id=2009783621]
+position = Vector2(-853, -130)
+script = ExtResource("4_fc0e3")
+junk_scene = ExtResource("2_e2o6t")
+
+[node name="Timer" type="Timer" parent="Spawners/Spawner2" unique_id=343338607]
+autostart = true
+
+[node name="Spawner" type="Marker2D" parent="Spawners" unique_id=595318452]
+position = Vector2(495, -117)
+script = ExtResource("4_fc0e3")
+junk_scene = ExtResource("2_e2o6t")
+
+[node name="Timer" type="Timer" parent="Spawners/Spawner" unique_id=358062549]
+autostart = true
+
+[node name="Spawner3" type="Marker2D" parent="Spawners" unique_id=429262738]
+position = Vector2(-162, -580)
+script = ExtResource("4_fc0e3")
+junk_scene = ExtResource("2_e2o6t")
+
+[node name="Timer" type="Timer" parent="Spawners/Spawner3" unique_id=1109897044]
+autostart = true
+
+[node name="Spawner4" type="Marker2D" parent="Spawners" unique_id=1229214605]
+position = Vector2(-169, 282)
+script = ExtResource("4_fc0e3")
+junk_scene = ExtResource("2_e2o6t")
+
+[node name="Timer" type="Timer" parent="Spawners/Spawner4" unique_id=1582825673]
+autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345353159]
 
