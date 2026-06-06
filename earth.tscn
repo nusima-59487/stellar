@@ -17,6 +17,7 @@ texture = ExtResource("1_om26h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1576351551]
 shape = SubResource("CircleShape2D_qbwya")
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1261532919]
 
