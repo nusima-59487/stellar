@@ -16,9 +16,7 @@ var hitbox_ready := false
 @onready var JUNK = preload("res://scenes/junk.tscn"); 
 
 func _ready() -> void:
-	print(self.name, "junk ready!")
 	await get_tree().create_timer(.3).timeout # first .3 second invincible
-	print(self.name, "junk hitbox ready!")
 	hitbox_ready = true; 
 
 func _physics_process(_shit) -> void:
@@ -76,6 +74,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
 		pass
 	elif body is Junk && self.hitbox_ready && body.hitbox_ready:
-		print(body.name)
 		break_junk()
 		
