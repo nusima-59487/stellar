@@ -6,18 +6,11 @@ const DECELERATION_RATE = 4.5
 
 @export var xp: int = 0
 @onready var particles: Node2D = $particles
-@onready var ray_cast: RayCast2D = $RayCast2D
-@onready var line: Line2D = $Line2D
-
 
 var time_accumulated: float = 0.0
 var fire_interval: float = 1./GameInstance.bullet_autofire_speed if GameInstance.bullet_autofire_speed > 0 else 9999.0; 
 
 const BULLET = preload("res://scenes/bullet.tscn")
-
-func _process(delta: float) -> void:
-	line.clear_points()
-	line.add_point(Vector2.ZERO)
 
 func _physics_process(delta: float) -> void:
 	
