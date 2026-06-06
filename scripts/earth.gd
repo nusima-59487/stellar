@@ -3,15 +3,20 @@ class_name Earth
 
 @export var hp: int = 80
 
+# temp
+var max_hp = 80; 
+
+@onready var hp_overlay: CanvasLayer = $"../HpOverlay"
+
 var progress_bar: TextureProgressBar; 
 var end_scene: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	progress_bar = $"../UI/CanvasLayer/HealthBar"; 
-	progress_bar.max_value = hp; 
-	progress_bar.value = hp;
-	pass # Replace with function body.
+	await hp_overlay.ready
+	hp_overlay.update(hp, max_hp)
+	pass
+	# print(hp, max_hp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -21,7 +26,7 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Junk: 
 		hp -= body.health
-		progress_bar.value = hp
+		hp_overlay.update(hp, max_hp)
 		body.queue_free()
 		if hp <= 0:
 			self.queue_free() # Earth is destroyed
