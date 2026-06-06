@@ -16,7 +16,7 @@ var updates_available: Dictionary = {
 }
 var update_stages: Dictionary = {
 	"bullet_stream": [1, 2, 3], 
-	"bullet_speed": [270, 340, 410, 480, 550, 620, 690], 
+	"bullet_speed": [410, 470, 530, 590, 650, 710, 770], 
 	"bullet_damage": [18, 26, 34, 42, 50, 58, 66], 
 	"bullet_autofire_speed": [1, 2, 3, 5, 8, 16, 25], 
 	"increase_max_earth_health": [], 
@@ -126,6 +126,8 @@ func _upgrade_stats (stat_key: String, current_stage_idx: int) -> bool:
 			GameInstance.max_earth_health += 15; 
 		"regen_earth_health":
 			GameInstance.earth_ref.hp += 15; 
+			if GameInstance.earth_ref.hp > GameInstance.max_earth_health: 
+				GameInstance.earth_ref.hp = GameInstance.max_earth_health
 		"lazer_unlock":
 			GameInstance.lazer_unlocked = new_stat_val; 
 			updates_available.merge({	
@@ -161,9 +163,12 @@ func _upgrade_stats (stat_key: String, current_stage_idx: int) -> bool:
 		_:
 			pass
 
+	GameInstance.stats_updated.emit()
 	if is_infinite_upgrade:
 		return false
-	return update_stages[stat_key].get(updated_stage_idx+1, null) == null
+	var e = update_stages[stat_key]
+	var f = e[updated_stage_idx+1] if updated_stage_idx+1 < e.size() else null
+	return f == null
 
 
 func _on_button1_pressed() -> void:

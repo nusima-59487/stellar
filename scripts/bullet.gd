@@ -11,6 +11,7 @@ var speed: int;
 func _ready() -> void:	
 	damage = GameInstance.bullet_damage; 
 	speed = GameInstance.bullet_speed; 
+	print(speed)
 	
 	var forward_direction = Vector2.RIGHT.rotated(rotation)
 	velocity = forward_direction * speed

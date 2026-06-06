@@ -1,5 +1,7 @@
 extends Node
 
+signal stats_updated
+
 var _animated_sprite_2d: AnimatedSprite2D; 
 var earth_ref: Earth; 
 

@@ -12,11 +12,16 @@ var end_scene: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameInstance.stats_updated.connect(_on_stats_updated); 
+
 	await hp_overlay.ready
 	hp_overlay.update(hp, max_hp)
 
 	GameInstance.earth_ref = self; 
 	# print(hp, max_hp)
+
+func _on_stats_updated (): 
+	hp_overlay.update(hp, GameInstance.max_earth_health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -25,7 +30,7 @@ func _process(_delta: float) -> void:
 # on body enter detection area
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Junk: 
-		hp -= body.health
+		hp -= int(body.health * GameInstance.damage_reduction_multiplier)
 		hp_overlay.update(hp, max_hp)
 		body.queue_free()
 		if hp <= 0:

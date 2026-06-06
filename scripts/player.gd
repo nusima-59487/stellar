@@ -11,9 +11,14 @@ var fire_interval: float = 1./GameInstance.bullet_autofire_speed if GameInstance
 
 const BULLET = preload("res://scenes/bullet.tscn")
 
+func _ready() -> void:
+	GameInstance.stats_updated.connect(_on_stats_updated)
+
+func _on_stats_updated (): 
+	fire_interval = 1./GameInstance.bullet_autofire_speed if GameInstance.bullet_autofire_speed > 0 else 9999.0; 
+
+
 func _physics_process(delta: float) -> void:
-	
-	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction_x := Input.get_axis("player_left", "player_right")

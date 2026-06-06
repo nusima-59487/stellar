@@ -16,8 +16,14 @@ var hitbox_ready := false
 @onready var JUNK = preload("res://scenes/junk.tscn"); 
 
 func _ready() -> void:
+	GameInstance.stats_updated.connect(_on_stats_updated)
+	T_SPEED = 130.0 * GameInstance.junk_speed_multiplier
 	await get_tree().create_timer(.3).timeout # first .3 second invincible
 	hitbox_ready = true; 
+
+func _on_stats_updated(): 
+	T_SPEED = 130.0 * GameInstance.junk_speed_multiplier
+
 
 func _physics_process(_shit) -> void:
 	$AnimatedSprite2D.animation = all_stage[stage]
