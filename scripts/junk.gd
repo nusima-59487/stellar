@@ -31,7 +31,7 @@ func take_damage(amount: int) -> void:
 
 
 func break_junk() -> void:
-	var JUNK = preload("res://junk.tscn")
+	var JUNK = preload("res://scenes/junk.tscn")
 	var junk_instance = JUNK.instantiate()
 	junk_instance.position = self.position
 	junk_instance.rotation = self.rotation - PI/2
