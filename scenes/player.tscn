@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://assets/spaceship.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cel2jqjyp8dx6" path="res://assets/ships/sprite_2.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bvhd4bbqo5pcc" path="res://assets/New Piskel (2).png" id="3_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://deuq660u1kmp6" path="res://assets/ships/sprite_1.png" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://deuq660u1kmp6" path="res://assets/ships/sprite_1.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://cel2jqjyp8dx6" path="res://assets/ships/sprite_2.png" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://bctt6hej7vtga" path="res://assets/ships/sprite_3.png" id="6_smehm"]
+[ext_resource type="Texture2D" uid="uid://bbc2j4x8umeac" path="res://assets/New Piskel (6).png" id="7_fjrip"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
@@ -19,6 +22,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_qhqgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_smehm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fjrip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
 }],
 "loop": true,
 "name": &"ship1",
@@ -57,8 +69,6 @@ func _process(delta: float) -> void:
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=921207560]
 z_index = 6
 script = ExtResource("1_onrkg")
@@ -74,13 +84,3 @@ script = SubResource("GDScript_qlg0r")
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101902577]
-
-[node name="Area2D" type="Area2D" parent="." unique_id=682261537]
-z_index = 5
-collision_layer = 2
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1994297839]
-shape = SubResource("RectangleShape2D_qhqgy")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

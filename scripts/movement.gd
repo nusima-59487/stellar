@@ -5,6 +5,7 @@ const SPEED = 15.0
 const DECELERATION_RATE = 4.5
 
 @export var xp: int = 0
+@onready var particles: Node2D = $particles
 
 var time_accumulated: float = 0.0
 var fire_interval: float = 1./GameInstance.bullet_autofire_speed if GameInstance.bullet_autofire_speed > 0 else 9999.0; 
@@ -27,6 +28,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED/DECELERATION_RATE)
 		
+	if not direction_x && not direction_y:
+		particles.visible = false
+	else:
+		particles.visible = true
 	var joy_dir := Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	# Check if the stick is being pushed past a small deadzone threshold
 	if joy_dir.length() > 0.2:
