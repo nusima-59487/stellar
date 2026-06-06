@@ -3,11 +3,14 @@ class_name Junk
 
 
 var all_stage = ["big","med","smol"]
+var all_hp = [10, 5, 2]
 
 @export var health: int = 10
 @export var stage: int = 0
-@export var C_SPEED = 100.0
-@export var T_SPEED = 200.0
+@export var C_SPEED = 40.0
+@export var T_SPEED = 130.0
+
+@onready var JUNK = preload("res://scenes/junk.tscn"); 
 
 func _physics_process(_shit) -> void:
 	$AnimatedSprite2D.animation = all_stage[stage]
@@ -33,25 +36,27 @@ func take_damage(amount: int) -> void:
 func break_junk() -> void:
 	if self.stage == 2:
 		queue_free()
-	else:
-		queue_free()
-		var JUNK1 = preload("res://scenes/junk.tscn")
-		var junk_instance1 = JUNK1.instantiate()
-		junk_instance1.position = self.position + Vector2(2, 2)
-		junk_instance1.rotation = self.rotation - PI/2
-		junk_instance1.stage = self.stage + 1
-		get_tree().current_scene.call_deferred("add_child", junk_instance1)
-		# add_sibling(junk_instance1)
-		# set_deferred("add_sibling", junk_instance1)
-		
-		var JUNK = preload("res://scenes/junk.tscn")
-		var junk_instance = JUNK.instantiate()
-		junk_instance.position = self.position + Vector2(-2, -2)
-		junk_instance.rotation = self.rotation - PI/2
-		junk_instance.stage = self.stage + 1
-		get_tree().current_scene.call_deferred("add_child", junk_instance)
-		# add_sibling(junk_instance)
-		# set_deferred("add_sibling", junk_instance)
+		return; 
+	queue_free()
+	var JUNK1 = preload("res://scenes/junk.tscn")
+	var junk_instance1 = JUNK1.instantiate()
+	junk_instance1.position = self.position + Vector2(2, 2)
+	junk_instance1.rotation = self.rotation - PI/2
+	junk_instance1.stage = self.stage + 1
+	junk_instance1.health = all_hp[junk_instance1.stage]
+	get_tree().current_scene.call_deferred("add_child", junk_instance1)
+	# add_sibling(junk_instance1)
+	# set_deferred("add_sibling", junk_instance1)
+	
+	var JUNK = preload("res://scenes/junk.tscn")
+	var junk_instance = JUNK.instantiate()
+	junk_instance.position = self.position + Vector2(-2, -2)
+	junk_instance.rotation = self.rotation - PI/2
+	junk_instance.stage = self.stage + 1
+	junk_instance.health = all_hp[junk_instance.stage]
+	get_tree().current_scene.call_deferred("add_child", junk_instance)
+	# add_sibling(junk_instance)
+	# set_deferred("add_sibling", junk_instance)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:

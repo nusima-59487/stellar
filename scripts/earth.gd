@@ -19,8 +19,8 @@ func _process(_delta: float) -> void:
 # on body enter detection area
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Junk: 
-		hp -= (3 - body.stage) * 10
+		hp -= body.health
 		progress_bar.value = hp
 		body.queue_free()
 		if hp <= 0:
-			queue_free() # Earth is destroyed
+			self.queue_free() # Earth is destroyed
