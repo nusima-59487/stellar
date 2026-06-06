@@ -8,7 +8,7 @@ var updates_available: Dictionary = {
 	"bullet_speed": 20, 
 	"bullet_damage": 16, 
 	"bullet_autofire_speed": 3, 
-	"increase_max_earth_health": 15, 
+	"increase_max_earth_health": 15,
 	"regen_earth_health": 10, 
 	"lazer_unlock": 3, 
 	"reduce_damage_taken": 7, 
@@ -60,7 +60,8 @@ func _process(_delta: float) -> void:
 
 func add_xp (count: int) -> void: 
 	xp_count += count
-	if xp_count >= xp_needed[current_xp_needed_index]: 
+	var xp_required = xp_needed[current_xp_needed_index] if current_xp_needed_index < xp_needed.size() else 700
+	if xp_count >= xp_required: 
 		current_xp_needed_index += 1
 		xp_count = 0
 		print("Level up! Current level: " + str(current_xp_needed_index))
@@ -78,7 +79,7 @@ func add_xp (count: int) -> void:
 	update_progress_bar()
 
 func update_progress_bar() -> void:
-	experience_bar.max_value = xp_needed[current_xp_needed_index] 
+	experience_bar.max_value = xp_needed[current_xp_needed_index] if current_xp_needed_index < xp_needed.size() else 700
 	experience_bar.value = xp_count
 
 
