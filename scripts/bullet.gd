@@ -13,8 +13,6 @@ func _ready() -> void:
 	experience_bar.max_value = 50
 	experience_bar.value = player.xp
 	
-	
-	
 	var forward_direction = Vector2.RIGHT.rotated(rotation)
 	velocity = forward_direction * speed
 
@@ -28,4 +26,5 @@ func _on_detection_area_2d_body_entered(body: Node2D) -> void:
 		body.take_damage(damage)
 		player.xp += damage
 		experience_bar.value = player.xp
+		print(experience_bar.value)
 		queue_free()
