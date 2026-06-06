@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b16ae8fdnwfkw" path="res://scripts/movement.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://assets/spaceship.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://cel2jqjyp8dx6" path="res://assets/ships/sprite_2.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bvhd4bbqo5pcc" path="res://assets/New Piskel (2).png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://deuq660u1kmp6" path="res://assets/ships/sprite_1.png" id="4_qlg0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
@@ -19,7 +21,23 @@ animations = [{
 "texture": ExtResource("3_qhqgy")
 }],
 "loop": true,
-"name": &"ship",
+"name": &"ship1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qlg0r")
+}],
+"loop": true,
+"name": &"ship2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dqkch")
+}],
+"loop": true,
+"name": &"ship3",
 "speed": 5.0
 }]
 
@@ -35,7 +53,7 @@ script = ExtResource("1_onrkg")
 rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"ship"
+animation = &"ship1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=110113435]
 shape = SubResource("RectangleShape2D_onrkg")

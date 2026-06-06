@@ -34,10 +34,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if Input.is_action_just_pressed("fire"): 
-		var bullet_instance = BULLET.instantiate()
-		bullet_instance.position = self.position
-		bullet_instance.rotation = self.rotation
-		add_sibling(bullet_instance)
+		if GameInstance.bullet_sterams_count == 2:
+			self._fire_bullet(Vector2(0, 10))
+			self._fire_bullet(Vector2(0, -10)) 
+		elif GameInstance.bullet_sterams_count == 3: 
+			self._fire_bullet(Vector2(0, 20))
+			self._fire_bullet(Vector2.ZERO)
+			self._fire_bullet(Vector2(0, -20)) 
+		else: # 1 or fallback
+			self._fire_bullet(Vector2.ZERO)
 
 func pause_object_temporarily():
 	set_process(false)
@@ -49,3 +54,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		pause_object_temporarily()
 		velocity.x = -0.5 * velocity.x
 		velocity.y = -0.5 * velocity.y
+
+
+func _fire_bullet(pos_diff: Vector2) -> void: 
+	var bullet_instance = BULLET.instantiate()
+	bullet_instance.position = self.position + pos_diff.rotated(self.rotation)
+	bullet_instance.rotation = self.rotation
+	add_sibling(bullet_instance)

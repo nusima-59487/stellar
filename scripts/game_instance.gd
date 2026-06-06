@@ -3,7 +3,7 @@ extends Node
 # init
 var bullet_speed: int = 200;
 var bullet_damage: int = 10;
-var bullet_sterams_count: int = 1; # max 3
+var bullet_sterams_count: int = 3; # max 3
 var bullet_autoclick_speed: int = 0;
 var earth_health: int = 80;
 var lazer_unlocked: bool = false; # base false
