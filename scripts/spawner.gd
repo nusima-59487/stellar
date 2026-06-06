@@ -1,9 +1,11 @@
 extends Marker2D
 
 @export var junk_scene: PackedScene
+var timer: Timer
 
 func _ready():
-	$Timer.timeout.connect(spawn_enemy)
+	timer = $"../Timer"
+	timer.timeout.connect(spawn_enemy)
 
 func spawn_enemy():
 	var junk = junk_scene.instantiate()

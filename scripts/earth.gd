@@ -8,7 +8,7 @@ var end_scene: CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	progress_bar = $"../CanvasLayer/ProgressBar"; 
+	progress_bar = $"../UI/CanvasLayer/HealthBar"; 
 	progress_bar.max_value = hp; 
 	progress_bar.value = hp;
 	pass # Replace with function body.
