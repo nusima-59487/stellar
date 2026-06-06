@@ -19,7 +19,6 @@ position = Vector2(639, -191)
 
 [node name="Player" parent="." unique_id=1570872910 instance=ExtResource("3_iywne")]
 position = Vector2(-276, -57)
-xp = null
 
 [node name="HpOverlay" type="CanvasLayer" parent="." unique_id=1345353159]
 script = ExtResource("4_u5sy4")
@@ -151,3 +150,63 @@ grow_horizontal = 0
 nine_patch_stretch = true
 texture_under = ExtResource("4_iywne")
 texture_progress = ExtResource("5_p57ef")
+
+[node name="PowerUp" type="Container" parent="UI/CanvasLayer" unique_id=23795707]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer3" type="CenterContainer" parent="UI/CanvasLayer/PowerUp" unique_id=1039802744]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/CanvasLayer/PowerUp/CenterContainer3" unique_id=446039885]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+color = Color(0, 0, 0.5019608, 1)
+
+[node name="Label" type="Label" parent="UI/CanvasLayer/PowerUp/CenterContainer3/ColorRect" unique_id=394329380]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 128.0
+offset_right = 186.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Power up 2"
+horizontal_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="UI/CanvasLayer/PowerUp" unique_id=2095961568]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/CanvasLayer/PowerUp/CenterContainer2" unique_id=1828640012]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+color = Color(0, 0, 0.5019608, 1)
+
+[node name="Label" type="Label" parent="UI/CanvasLayer/PowerUp/CenterContainer2/ColorRect" unique_id=834581406]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 138.0
+offset_right = 186.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Power up 3"
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/CanvasLayer/PowerUp" unique_id=1168567569]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/CanvasLayer/PowerUp/CenterContainer" unique_id=407419579]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+color = Color(0, 0, 0.5019608, 1)
+
+[node name="Label" type="Label" parent="UI/CanvasLayer/PowerUp/CenterContainer/ColorRect" unique_id=374598470]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 127.0
+offset_right = 188.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Power Up 1"
+horizontal_alignment = 1
