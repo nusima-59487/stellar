@@ -1,7 +1,11 @@
 extends CharacterBody2D
 class_name Junk
 
+
+var all_stage = ["big","med","smol"]
+
 @export var health: int = 10
+@export var stage: int = 0
 @export var C_SPEED = 100.0
 @export var T_SPEED = 200.0
 
@@ -19,7 +23,25 @@ func _physics_process(_shit) -> void:
 
 	move_and_slide()
 
+
 func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
 		queue_free()
+
+
+func break_junk() -> void:
+	var JUNK = preload("res://junk.tscn")
+	var junk_instance = JUNK.instantiate()
+	junk_instance.position = self.position
+	junk_instance.rotation = self.rotation - PI/2
+	add_sibling(junk_instance)
+
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method("break"):
+		body.break_junk()
+		
+		
