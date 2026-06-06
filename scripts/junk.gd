@@ -5,6 +5,8 @@ class_name Junk
 var all_stage = ["big","med","smol"]
 var all_hp = [10, 5, 2]
 
+var hitbox_ready := false
+
 @export var health: int = 10
 @export var stage: int = 0
 @export var dir = true
@@ -12,6 +14,12 @@ var all_hp = [10, 5, 2]
 @export var T_SPEED = 130.0
 
 @onready var JUNK = preload("res://scenes/junk.tscn"); 
+
+func _ready() -> void:
+	print(self.name, "junk ready!")
+	await get_tree().create_timer(.4).timeout # 1st second invincible
+	print(self.name, "junk hitbox ready!")
+	hitbox_ready = true; 
 
 func _physics_process(_shit) -> void:
 	$AnimatedSprite2D.animation = all_stage[stage]
@@ -67,6 +75,7 @@ func break_junk() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
 		pass
-	elif body.has_method("break_junk"):
+	elif body is Junk && self.hitbox_ready && body.hitbox_ready:
+		print(body.name)
 		break_junk()
 		
