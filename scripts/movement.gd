@@ -21,5 +21,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED/DECELERATION_RATE)
 		
 	look_at(get_global_mouse_position())
+	rotation_degrees += (90)
 
 	move_and_slide()
