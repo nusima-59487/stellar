@@ -1,8 +1,9 @@
 extends CharacterBody2D
+class_name Junk
 
-
-const C_SPEED = 100.0
-const T_SPEED = 200.0
+@export var health: int = 10
+@export var C_SPEED = 100.0
+@export var T_SPEED = 200.0
 
 func _physics_process(_shit) -> void:
 	var target_pos := Vector2.ZERO; 
@@ -17,3 +18,8 @@ func _physics_process(_shit) -> void:
 	velocity.y = C_SPEED * sin(angle_to_target) + T_SPEED * sin(perpendicular_angle)
 
 	move_and_slide()
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		queue_free()
