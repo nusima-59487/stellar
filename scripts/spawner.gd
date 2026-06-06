@@ -7,7 +7,6 @@ func _ready():
 
 func spawn_enemy():
 	var junk = junk_scene.instantiate()
-
 	junk.global_position = global_position
-
+	junk.dir = randf() < 0.5
 	get_parent().add_child(junk)
