@@ -17,3 +17,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="cascade"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="cascade"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.11764706, 0.11764706, 0.11764706, 1)
