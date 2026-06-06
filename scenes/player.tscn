@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bealsgd5r5mfq"]
 
-[ext_resource type="Script" uid="uid://b16ae8fdnwfkw" path="res://scripts/movement.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://b16ae8fdnwfkw" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://assets/spaceship.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bvhd4bbqo5pcc" path="res://assets/New Piskel (2).png" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://deuq660u1kmp6" path="res://assets/ships/sprite_1.png" id="3_tuyoq"]
@@ -114,5 +114,7 @@ initial_velocity_min = 89.11
 initial_velocity_max = 247.53
 color_ramp = SubResource("Gradient_smehm")
 script = ExtResource("8_smehm")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=405897092]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

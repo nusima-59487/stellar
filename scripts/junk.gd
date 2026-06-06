@@ -72,9 +72,10 @@ func break_junk() -> void:
 	await get_tree().create_timer(0.1).timeout
 
 	# Reset all three
-	self_modulate = Color(1, 1, 1, 1)
-	junk_instance1.modulate = Color(1, 1, 1, 1)
-	junk_instance2.modulate = Color(1, 1, 1, 1)
+	if junk_instance1 && junk_instance2:
+		self_modulate = Color(1, 1, 1, 1)
+		junk_instance1.modulate = Color(1, 1, 1, 1)
+		junk_instance2.modulate = Color(1, 1, 1, 1)
 
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
