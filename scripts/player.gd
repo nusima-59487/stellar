@@ -83,7 +83,7 @@ func _activate_lazer():
 			is_laser_cooldown_done = false
 			await get_tree().create_timer(4).timeout
 			laser_off()
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(12).timeout
 			is_laser_cooldown_done = true
 
 func laser_off():
