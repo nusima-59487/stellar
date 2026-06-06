@@ -14,7 +14,8 @@ var end_scene: CanvasLayer
 func _ready() -> void:
 	await hp_overlay.ready
 	hp_overlay.update(hp, max_hp)
-	pass
+
+	GameInstance.earth_ref = self; 
 	# print(hp, max_hp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
