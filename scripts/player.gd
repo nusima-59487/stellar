@@ -63,10 +63,6 @@ func _physics_process(delta: float) -> void:
 		if time_accumulated >= fire_interval:
 			time_accumulated = 0.0 # Reset the interval
 			self._fire_logic();
-
-	#test here
-	if Input.is_action_just_pressed("ui_accept"): 
-		GameInstance.add_bullet_stream_count(); 
 		
 func _activate_lazer():
 	if not GameInstance.lazer_unlocked:
