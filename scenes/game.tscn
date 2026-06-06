@@ -152,6 +152,7 @@ texture_under = ExtResource("4_iywne")
 texture_progress = ExtResource("5_p57ef")
 
 [node name="CenterContainer3" type="CenterContainer" parent="UI/CanvasLayer" unique_id=1039802744]
+visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -178,6 +179,7 @@ text = "Power up 2"
 horizontal_alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="UI/CanvasLayer" unique_id=2095961568]
+visible = false
 offset_left = 476.0
 offset_top = 174.0
 offset_right = 676.0
@@ -199,6 +201,7 @@ theme_override_font_sizes/font_size = 32
 text = "Power up 3"
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/CanvasLayer" unique_id=1168567569]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
