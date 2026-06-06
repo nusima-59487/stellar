@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bealsgd5r5mfq"]
 
-[ext_resource type="Script" uid="uid://c4lcd5dm0rrbi" path="res://movement.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://b16ae8fdnwfkw" path="res://scripts/movement.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://New Piskel (1).png" id="2_i3pqv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
@@ -29,3 +29,5 @@ sprite_frames = SubResource("SpriteFrames_hqtel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=110113435]
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1101902577]
