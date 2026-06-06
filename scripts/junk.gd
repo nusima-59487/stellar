@@ -40,14 +40,18 @@ func break_junk() -> void:
 		junk_instance1.position = self.position + Vector2(2, 2)
 		junk_instance1.rotation = self.rotation - PI/2
 		junk_instance1.stage = self.stage + 1
-		add_sibling(junk_instance1)
+		get_tree().current_scene.call_deferred("add_child", junk_instance1)
+		# add_sibling(junk_instance1)
+		# set_deferred("add_sibling", junk_instance1)
 		
 		var JUNK = preload("res://scenes/junk.tscn")
 		var junk_instance = JUNK.instantiate()
 		junk_instance.position = self.position + Vector2(-2, -2)
 		junk_instance.rotation = self.rotation - PI/2
 		junk_instance.stage = self.stage + 1
-		add_sibling(junk_instance)
+		get_tree().current_scene.call_deferred("add_child", junk_instance)
+		# add_sibling(junk_instance)
+		# set_deferred("add_sibling", junk_instance)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
