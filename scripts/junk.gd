@@ -28,33 +28,31 @@ func _physics_process(_shit) -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
-		if stage == 2:
-			queue_free()
-		else:
-			queue_free()
-			break_junk()
+		break_junk()
 
 func break_junk() -> void:
-	var JUNK1 = preload("res://scenes/junk.tscn")
-	var junk_instance1 = JUNK1.instantiate()
-	junk_instance1.position = self.position + Vector2(2, 2)
-	junk_instance1.rotation = self.rotation - PI/2
-	junk_instance1.stage = self.stage + 1
-	add_sibling(junk_instance1)
-	
-	var JUNK = preload("res://scenes/junk.tscn")
-	var junk_instance = JUNK.instantiate()
-	junk_instance.position = self.position + Vector2(-2, -2)
-	junk_instance.rotation = self.rotation - PI/2
-	junk_instance.stage = self.stage + 1
-	add_sibling(junk_instance)
-	
-
-
-
+	if self.stage == 2:
+		queue_free()
+	else:
+		queue_free()
+		var JUNK1 = preload("res://scenes/junk.tscn")
+		var junk_instance1 = JUNK1.instantiate()
+		junk_instance1.position = self.position + Vector2(2, 2)
+		junk_instance1.rotation = self.rotation - PI/2
+		junk_instance1.stage = self.stage + 1
+		add_sibling(junk_instance1)
+		
+		var JUNK = preload("res://scenes/junk.tscn")
+		var junk_instance = JUNK.instantiate()
+		junk_instance.position = self.position + Vector2(-2, -2)
+		junk_instance.rotation = self.rotation - PI/2
+		junk_instance.stage = self.stage + 1
+		add_sibling(junk_instance)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("break"):
-		body.break_junk()
-		
+	if body == self:
+		print("I ran into myself!")
+	elif body.has_method("break_junk"):
+		print(body.stage, self.stage)
+		break_junk()
 		
