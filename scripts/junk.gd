@@ -4,6 +4,12 @@ class_name Junk
 
 var all_stage = ["big","med","smol"]
 var all_hp = [10, 5, 2]
+# break sound per stage (kept quiet via volume_db below)
+var all_sfx = [
+	preload("res://assets/sfx/break_big.wav"),
+	preload("res://assets/sfx/break_med.wav"),
+	preload("res://assets/sfx/break_smol.wav"),
+]
 
 var hitbox_ready := false
 
@@ -50,6 +56,8 @@ func take_damage(amount: int) -> void:
 		break_junk()
 
 func break_junk() -> void:
+	_play_break_sfx()
+
 	if self.stage == 2:
 		queue_free()
 		return
@@ -90,4 +98,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		pass
 	elif body is Junk && self.hitbox_ready && body.hitbox_ready:
 		break_junk()
+
+func _play_break_sfx() -> void:
+	# Self-freeing one-shot player so the sound outlives this junk's queue_free.
+	var p := AudioStreamPlayer2D.new()
+	p.stream = all_sfx[stage]
+	p.global_position = global_position
+	p.volume_db = -14.0 # quiet
+	p.finished.connect(p.queue_free)
+	get_tree().current_scene.call_deferred("add_child", p)
+	p.call_deferred("play")
 		
