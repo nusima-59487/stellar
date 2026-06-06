@@ -8,8 +8,6 @@
 [ext_resource type="Script" uid="uid://bma6mncgbf7nc" path="res://scripts/hpoverlay.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cphnilbx06yi" path="res://assets/progressbar_top.png" id="5_p57ef"]
 [ext_resource type="FontFile" uid="uid://bdjlwn2fgd5cq" path="res://assets/fonts/PixelifySans-Regular.ttf" id="7_gee14"]
-[ext_resource type="Texture2D" uid="uid://m8k8dgcg1s0j" path="res://assets/arrow.png" id="9_0tnpc"]
-[ext_resource type="Script" uid="uid://h8q1fbvchm3w" path="res://scripts/sprite_2d.gd" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://rbgacf2dbr2s" path="res://scenes/lvlup_ui.tscn" id="9_0tnpc"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]

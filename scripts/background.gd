@@ -1,6 +1,6 @@
 extends CanvasLayer
-# Passive space backdrop: gradient sky, a few soft nebula tints and a
-# parallax pixel starfield. Spawned by GameInstance; draws behind everything.
+# Passive space backdrop: gradient sky and a parallax pixel starfield.
+# Spawned by GameInstance; draws behind everything.
 
 func _ready() -> void:
 	layer = -100
@@ -9,7 +9,6 @@ func _ready() -> void:
 
 class Backdrop extends Node2D:
 	var stars := []
-	var nebulae := []
 	var time := 0.0
 
 	func _ready() -> void:
@@ -29,19 +28,6 @@ class Backdrop extends Node2D:
 				pts.append(Vector2(rng.randf() * area.x, rng.randf() * area.y))
 			stars.append({"pts": pts, "factor": d["factor"], "size": d["size"], "bright": d["bright"]})
 
-		# just a couple of soft colour tints — kept subtle
-		var ncols := [
-			Color(0.34, 0.14, 0.46),  # violet
-			Color(0.10, 0.30, 0.48),  # teal-blue
-			Color(0.16, 0.16, 0.40),  # indigo
-		]
-		for i in range(3):
-			nebulae.append({
-				"pos": Vector2(rng.randf() * area.x, rng.randf() * area.y),
-				"r": rng.randf_range(260.0, 420.0),
-				"col": ncols[i % ncols.size()],
-				"factor": 0.025,
-			})
 		set_process(true)
 
 	func _process(delta: float) -> void:
@@ -64,19 +50,6 @@ class Backdrop extends Node2D:
 		var quad := PackedVector2Array([Vector2.ZERO, Vector2(vp.x, 0), vp, Vector2(0, vp.y)])
 		var cols := PackedColorArray([c_top, c_top, c_bot, c_bot])
 		draw_polygon(quad, cols)
-
-		# a few soft nebula tints (chunky / pixely — only two stacked discs each)
-		for n in nebulae:
-			var r: float = n["r"]
-			var off := -cam * float(n["factor"])
-			var base: Vector2 = n["pos"]
-			base += off
-			base.x = fposmod(base.x, vp.x + r * 2.0) - r
-			base.y = fposmod(base.y, vp.y + r * 2.0) - r
-			base = base.round()
-			var col: Color = n["col"]
-			draw_circle(base, r, Color(col.r, col.g, col.b, 0.05))
-			draw_circle(base, r * 0.5, Color(col.r, col.g, col.b, 0.07))
 
 		# parallax stars drawn as little squares for a pixel feel
 		for layer_s in stars:
