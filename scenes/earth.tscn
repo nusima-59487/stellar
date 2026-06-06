@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://327la0ebdhj3"]
 
-[ext_resource type="Texture2D" uid="uid://b588aj3hjqlq0" path="res://earth.png" id="1_om26h"]
+[ext_resource type="Texture2D" uid="uid://b588aj3hjqlq0" path="res://assets/earth.png" id="1_om26h"]
 [ext_resource type="Script" uid="uid://tbjt2gskoula" path="res://scripts/earth.gd" id="1_qbwya"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbwya"]

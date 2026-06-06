@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 15.0
 const DECELERATION_RATE = 4.5
 
-const BULLET = preload("res://bullet.tscn")
+const BULLET = preload("res://scenes/bullet.tscn")
 
 func _physics_process(delta: float) -> void:
 	

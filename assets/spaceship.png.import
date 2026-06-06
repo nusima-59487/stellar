@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://df6s4hhjaj883"
-path="res://.godot/imported/New Piskel (1).png-aa190bd7eaf77cd10e10a600010083f1.ctex"
+path="res://.godot/imported/spaceship.png-58498873603dbb319d28b42f0ee36280.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://New Piskel (1).png"
-dest_files=["res://.godot/imported/New Piskel (1).png-aa190bd7eaf77cd10e10a600010083f1.ctex"]
+source_file="res://assets/spaceship.png"
+dest_files=["res://.godot/imported/spaceship.png-58498873603dbb319d28b42f0ee36280.ctex"]
 
 [params]
 

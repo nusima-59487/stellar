@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bealsgd5r5mfq"]
 
 [ext_resource type="Script" uid="uid://b16ae8fdnwfkw" path="res://scripts/movement.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://New Piskel (1).png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://df6s4hhjaj883" path="res://assets/spaceship.png" id="2_i3pqv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{

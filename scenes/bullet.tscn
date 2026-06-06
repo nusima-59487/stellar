@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bij87hqqhwlsj"]
 
-[ext_resource type="Texture2D" uid="uid://cyt7fe1wjnebd" path="res://bullet.png" id="1_v7oki"]
-[ext_resource type="Script" uid="uid://c58drfi7f8g7v" path="res://scripts/bullet.gd" id="1_v8qja"]
+[ext_resource type="Script" uid="uid://c58drfi7f8g7v" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://cyt7fe1wjnebd" path="res://assets/bullet.png" id="2_l5glv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
 radius = 24.083189
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1599289689]
-script = ExtResource("1_v8qja")
+script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824070223]
 position = Vector2(0, 5)
-texture = ExtResource("1_v7oki")
+texture = ExtResource("2_l5glv")
 
 [node name="Detection Area2D" type="Area2D" parent="." unique_id=338098720]
 
