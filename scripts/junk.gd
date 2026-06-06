@@ -8,8 +8,6 @@ var all_hp = [10, 5, 2]
 @export var health: int = 10
 @export var stage: int = 0
 @export var dir = true
-@export var C_SPEED = 100.0
-@export var T_SPEED = 200.0
 @export var C_SPEED = 40.0
 @export var T_SPEED = 130.0
 
@@ -49,7 +47,7 @@ func break_junk() -> void:
 	junk_instance1.position = self.position + Vector2(2, 2)
 	junk_instance1.rotation = self.rotation - PI/2
 	junk_instance1.stage = self.stage + 1
-	junk.instance1.dir = true
+	junk_instance1.dir = true
 	junk_instance1.health = all_hp[junk_instance1.stage]
 	get_tree().current_scene.call_deferred("add_child", junk_instance1)
 	# add_sibling(junk_instance1)
@@ -60,7 +58,7 @@ func break_junk() -> void:
 	junk_instance.position = self.position + Vector2(-2, -2)
 	junk_instance.rotation = self.rotation - PI/2
 	junk_instance.stage = self.stage + 1
-	junk.instance1.dir = false
+	junk_instance.dir = false
 	junk_instance.health = all_hp[junk_instance.stage]
 	get_tree().current_scene.call_deferred("add_child", junk_instance)
 	# add_sibling(junk_instance)
