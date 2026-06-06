@@ -49,6 +49,7 @@ func break_junk() -> void:
 	junk_instance1.position = self.position + Vector2(2, 2)
 	junk_instance1.rotation = self.rotation - PI/2
 	junk_instance1.stage = self.stage + 1
+	junk.instance1.dir = true
 	junk_instance1.health = all_hp[junk_instance1.stage]
 	get_tree().current_scene.call_deferred("add_child", junk_instance1)
 	# add_sibling(junk_instance1)
@@ -59,6 +60,7 @@ func break_junk() -> void:
 	junk_instance.position = self.position + Vector2(-2, -2)
 	junk_instance.rotation = self.rotation - PI/2
 	junk_instance.stage = self.stage + 1
+	junk.instance1.dir = false
 	junk_instance.health = all_hp[junk_instance.stage]
 	get_tree().current_scene.call_deferred("add_child", junk_instance)
 	# add_sibling(junk_instance)
