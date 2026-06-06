@@ -46,8 +46,8 @@ func take_damage(amount: int) -> void:
 func break_junk() -> void:
 	if self.stage == 2:
 		queue_free()
-		return; 
-	queue_free()
+		return
+
 	var JUNK1 = preload("res://scenes/junk.tscn")
 	var junk_instance1 = JUNK1.instantiate()
 	junk_instance1.position = self.position + Vector2(2, 2)
@@ -55,21 +55,29 @@ func break_junk() -> void:
 	junk_instance1.stage = self.stage + 1
 	junk_instance1.dir = true
 	junk_instance1.health = all_hp[junk_instance1.stage]
+	junk_instance1.modulate = Color(0.85, 0.341, 0.293, 1.0)
 	get_tree().current_scene.call_deferred("add_child", junk_instance1)
-	# add_sibling(junk_instance1)
-	# set_deferred("add_sibling", junk_instance1)
-	
-	var JUNK = preload("res://scenes/junk.tscn")
-	var junk_instance = JUNK.instantiate()
-	junk_instance.position = self.position + Vector2(-2, -2)
-	junk_instance.rotation = self.rotation - PI/2
-	junk_instance.stage = self.stage + 1
-	junk_instance.dir = false
-	junk_instance.health = all_hp[junk_instance.stage]
-	get_tree().current_scene.call_deferred("add_child", junk_instance)
-	# add_sibling(junk_instance)
-	# set_deferred("add_sibling", junk_instance)
 
+	var JUNK2 = preload("res://scenes/junk.tscn")
+	var junk_instance2 = JUNK2.instantiate()
+	junk_instance2.position = self.position + Vector2(-2, -2)
+	junk_instance2.rotation = self.rotation - PI/2
+	junk_instance2.stage = self.stage + 1
+	junk_instance2.dir = false
+	junk_instance2.health = all_hp[junk_instance2.stage]
+	junk_instance2.modulate = Color(0.85, 0.341, 0.293, 1.0)
+	get_tree().current_scene.call_deferred("add_child", junk_instance2)
+
+	self_modulate = Color(0.85, 0.341, 0.293, 1.0)
+	await get_tree().create_timer(0.1).timeout
+
+	# Reset all three
+	self_modulate = Color(1, 1, 1, 1)
+	junk_instance1.modulate = Color(1, 1, 1, 1)
+	junk_instance2.modulate = Color(1, 1, 1, 1)
+
+	await get_tree().create_timer(0.1).timeout
+	queue_free()
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
 		pass
