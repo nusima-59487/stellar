@@ -25,13 +25,31 @@ var update_stages: Dictionary = {
 	"lazer_damage": [35, 45, 60, 75, 90, 105, 120], 
 	"lazer_time": [6, 7, 8, 9, 10, 11, 12], 
 	"increase_lazer_cooldown": [], 
-	"increase_lazer_width": [12, 14, 16, 18, 20, 22, 24], 
 	"reduce_damage_taken": [], 
 	"slow_junk": [], 
 	"stellar_1": [true], 
 	"stellar_2": [true], 
 	"stellar_3": [true]
 }
+
+var update_titles: Dictionary = {
+	"bullet_stream": "Increase bullet streams", 
+	"bullet_speed": "Increase bullet speed", 
+	"bullet_damage": "Increase bullet damage", 
+	"bullet_autofire_speed": "Increase bullet autofire speed", 
+	"increase_max_earth_health": "Increase max earth health", 
+	"regen_earth_health": "Restore earth health", 
+	"lazer_unlock": "Unlock Lazer (RMB)", 
+	"lazer_damage": "Increase lazer damage", 
+	"lazer_time": "Increase Lazer duration", 
+	"increase_lazer_cooldown": "Decrease Lazer cooldown", 
+	"reduce_damage_taken": "Earth Shield", 
+	"slow_junk": "Slow junk", 
+	"stellar_1": "STELLAR 1", 
+	"stellar_2": "stellar_2", 
+	"stellar_3": "stellar_3"
+}
+
 var update_count: Dictionary = {}
 
 
@@ -44,6 +62,9 @@ var update_count: Dictionary = {}
 @onready var button: Button = $AbilitiesCanvasLayer/CenterContainer3/Button
 @onready var button2: Button = $AbilitiesCanvasLayer/CenterContainer2/Button3
 @onready var button3: Button = $AbilitiesCanvasLayer/CenterContainer/Button2
+@onready var animated_sprite_2d: AnimatedSprite2D = $AbilitiesCanvasLayer/CenterContainer3/AnimatedSprite2D3
+@onready var animated_sprite_2d_2: AnimatedSprite2D = $AbilitiesCanvasLayer/CenterContainer2/AnimatedSprite2D2
+@onready var animated_sprite_2d_3: AnimatedSprite2D = $AbilitiesCanvasLayer/CenterContainer/AnimatedSprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -70,12 +91,15 @@ func add_xp (count: int) -> void:
 		var choice1 = _pull_update()
 		var choice2 = _pull_update()
 		var choice3 = _pull_update()
-		label.text = choice1
+		label.text = update_titles[choice1]
 		button.text = choice1
-		label2.text = choice2
+		animated_sprite_2d.animation = choice1
+		label2.text = update_titles[choice2]
 		button2.text = choice2
-		label3.text = choice3
+		animated_sprite_2d_2.animation = choice2
+		label3.text = update_titles[choice3]
 		button3.text = choice3
+		animated_sprite_2d_3.animation = choice3
 	update_progress_bar()
 
 func update_progress_bar() -> void:
@@ -135,7 +159,6 @@ func _upgrade_stats (stat_key: String, current_stage_idx: int) -> bool:
 				"lazer_damage": 9, 
 				"lazer_time": 6, 
 				"increase_lazer_cooldown": 5, 
-				"increase_lazer_width": 7, 
 				"stellar_1": 1, 
 				"stellar_2": 1, 
 				"stellar_3": 1
@@ -147,8 +170,6 @@ func _upgrade_stats (stat_key: String, current_stage_idx: int) -> bool:
 		"increase_lazer_cooldown":
 			GameInstance.lazer_cooldown_secs -= 1
 			return GameInstance.lazer_cooldown_secs <= 0
-		"increase_lazer_width":
-			GameInstance.lazer_width = new_stat_val; 
 		"reduce_damage_taken":
 			GameInstance.damage_reduction_multiplier -= 0.06; 
 			return GameInstance.damage_reduction_multiplier <= 0.2
