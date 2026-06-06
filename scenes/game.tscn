@@ -103,6 +103,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="EndScene/CanvasLayer/CenterContainer/VBoxContainer" unique_id=165022771]
 z_index = 4
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_gee14")
 theme_override_font_sizes/font_size = 32
 text = "THE END"
 horizontal_alignment = 1
