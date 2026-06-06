@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://327la0ebdhj3" path="res://scenes/earth.tscn" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bcnqemqru3qx5" path="res://scenes/junk.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bealsgd5r5mfq" path="res://scenes/player.tscn" id="3_iywne"]
-[ext_resource type="Script" uid="uid://u1q71ydbpxol" path="res://scripts/spawner.gd" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://d36k18vqtv7jp" path="res://assets/progressbar_btm.png" id="4_iywne"]
+[ext_resource type="Script" uid="uid://u1q71ydbpxol" path="res://scripts/spawner.gd" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cphnilbx06yi" path="res://assets/progressbar_top.png" id="5_p57ef"]
 
 [node name="Node2D" type="Node2D" unique_id=1828940856]
@@ -20,20 +20,21 @@ position = Vector2(-276, -57)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345353159]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1777079737]
+[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1481164284]
 custom_minimum_size = Vector2(200, 30)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -295.0
-offset_bottom = 30.0
+offset_left = -301.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 31.0
 grow_horizontal = 0
 max_value = 10.0
+value = 10.0
 nine_patch_stretch = true
 texture_under = ExtResource("4_iywne")
 texture_progress = ExtResource("5_p57ef")
-step = 1.0
-value = 100.0
 
 [node name="Spawners" type="Node2D" parent="." unique_id=749929689]
 
@@ -72,5 +73,3 @@ junk_scene = ExtResource("2_lbhrr")
 [node name="Timer" type="Timer" parent="Spawners/Spawner4" unique_id=1766543521]
 wait_time = 5.0
 autostart = true
-
-
