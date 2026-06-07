@@ -1,6 +1,6 @@
 extends Node2D
 
-var xp_needed = [50, 100, 150, 200, 300, 400, 500, 600]
+var xp_needed = [50, 100, 170, 260, 360, 470, 600, 750, 900]
 var current_xp_needed_index: int = 0
 var xp_count: int = 0; 
 var updates_available: Dictionary = {
@@ -81,7 +81,7 @@ func _process(_delta: float) -> void:
 
 func add_xp (count: int) -> void: 
 	xp_count += count
-	var xp_required = xp_needed[current_xp_needed_index] if current_xp_needed_index < xp_needed.size() else 700
+	var xp_required = xp_needed[current_xp_needed_index] if current_xp_needed_index < xp_needed.size() else 900 + (current_xp_needed_index-8)*150
 	if xp_count >= xp_required: 
 		current_xp_needed_index += 1
 		xp_count = 0
@@ -104,7 +104,7 @@ func add_xp (count: int) -> void:
 	update_progress_bar()
 
 func update_progress_bar() -> void:
-	experience_bar.max_value = xp_needed[current_xp_needed_index] if current_xp_needed_index < xp_needed.size() else 700
+	experience_bar.max_value = xp_needed[current_xp_needed_index] if current_xp_needed_index < xp_needed.size() else 900 + (current_xp_needed_index-8)*150
 	experience_bar.value = xp_count
 
 

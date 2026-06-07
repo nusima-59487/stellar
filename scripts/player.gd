@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var laser_raycast: Node2D = $laser/RayCast2D
-
+@onready var laser: Node2D = $laser
 @onready var laser_visual: Node2D = $laser/Line2D
 const SPEED = 15.0
 const DECELERATION_RATE = 4.5
@@ -77,9 +77,9 @@ func _activate_lazer():
 			laser_visual.visible = true
 			laser_on = true
 			is_laser_cooldown_done = false
-			await get_tree().create_timer(4).timeout
+			await get_tree().create_timer(laser.laser_time).timeout
 			laser_off()
-			await get_tree().create_timer(12).timeout
+			await get_tree().create_timer(laser.cooldown).timeout
 			is_laser_cooldown_done = true
 
 func laser_off():

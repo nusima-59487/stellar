@@ -1,18 +1,21 @@
 extends Node2D
 
-var damage: int=2; 
+var damage: int = GameInstance.lazer_damage; 
+var fire_timer = 0.0
+var fire_rate = 0.1  # damage every 0.1 seconds
+var cooldown = GameInstance.lazer_cooldown_secs
+var laser_time = GameInstance.lazer_time
 @onready var player: CharacterBody2D = $".."
 @onready var experience_bar: TextureProgressBar = $"../../UI/ExpCanvasLayer/ExperienceBar"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameInstance.stats_updated.connect(_on_stats_updated)
 	pass # Replace with function body.
-
-
-var fire_timer = 0.0
-var fire_rate = 0.1  # damage every 0.1 seconds
-var cooldown = 12
-var laser_time = 4
+func _on_stats_updated (): 
+	damage = GameInstance.lazer_damage
+	cooldown = GameInstance.lazer_cooldown_secs
+	laser_time = GameInstance.lazer_time
 
 func _process(delta: float) -> void:
 	$RayCast2D.force_raycast_update()

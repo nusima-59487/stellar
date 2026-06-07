@@ -15,7 +15,7 @@
 [node name="Node2D" type="Node2D" unique_id=1828940856]
 
 [node name="Earth" parent="." unique_id=1882255239 instance=ExtResource("1_lnu2h")]
-position = Vector2(-33, 14)
+position = Vector2(-29, 10.000001)
 scale = Vector2(3, 3)
 
 [node name="Junk CharBody2D" parent="." unique_id=312566469 instance=ExtResource("2_lbhrr")]
@@ -61,8 +61,17 @@ vertical_alignment = 1
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D" type="Sprite2D" parent="HpOverlay" unique_id=136793312]
-position = Vector2(52, 599)
+[node name="Container" type="Control" parent="HpOverlay" unique_id=1565720967]
+layout_mode = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -9.0
+offset_right = 10.0
+offset_bottom = -9.0
+
+[node name="Sprite2D" type="Sprite2D" parent="HpOverlay/Container" unique_id=136793312]
+position = Vector2(29, -31)
 texture = ExtResource("11_28e93")
 script = ExtResource("10_vtaks")
 
